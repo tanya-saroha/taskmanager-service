@@ -1,9 +1,9 @@
 DB_HOST=localhost
-DB_NAME=profilemgr_development
-TEST_DB_NAME=profilemgr_test
+DB_NAME=taskmanager_development
+TEST_DB_NAME=taskmanager_test
 DB_USER=postgres
 ALL_PACKAGES=$(shell go list ./... | grep -v "vendor")
-APP_EXECUTABLE="out/profilemgr"
+APP_EXECUTABLE="out/taskmanager"
 DB_PORT=5432
 
 copy-config:

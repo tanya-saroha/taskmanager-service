@@ -18,16 +18,16 @@ func initRouter(dep dependencies) (taskRouter *mux.Router) {
 	fmt.Println(v1)
 
 	router := mux.NewRouter()
-	taskRouter = router.PathPrefix("/profiles").Subrouter()
+	taskRouter = router.PathPrefix("/tasks").Subrouter()
 
-	//ping
+	// ping
 	taskRouter.HandleFunc("/ping", pingHandler).Methods(http.MethodGet)
 
 	// //docs
 	// docStrip := http.StripPrefix("/profiles/docs/", http.FileServer(http.Dir("./swaggerui/")))
 	// profileRouter.PathPrefix("/docs/").Handler(docStrip)
 	//config
-	taskRouter.HandleFunc("/config", api.Config()).Methods(http.MethodGet).Headers(versionHeader, v1)
+	// taskRouter.HandleFunc("/config", api.Config()).Methods(http.MethodGet).Headers(versionHeader, v1)
 	return
 }
 

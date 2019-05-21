@@ -9,11 +9,10 @@ import (
 )
 
 type config struct {
-	appName          string
-	appPort          int
-	migrationPath    string
-	db               databaseConfig
-	expiryTime       int
+	appName       string
+	appPort       int
+	migrationPath string
+	db            databaseConfig
 }
 
 var appConfig config
@@ -32,11 +31,10 @@ func Load(configurationFile string) {
 	viper.AutomaticEnv()
 
 	appConfig = config{
-		appName:          readEnvString("APP_NAME"),
-		appPort:          readEnvInt("APP_PORT"),
-		migrationPath:    readEnvString("MIGRATION_PATH"),
-		db:               newDatabaseConfig(),
-		expiryTime:       readEnvInt("EXPIRY_TIME"),
+		appName:       readEnvString("APP_NAME"),
+		appPort:       readEnvInt("APP_PORT"),
+		migrationPath: readEnvString("MIGRATION_PATH"),
+		db:            newDatabaseConfig(),
 	}
 }
 
@@ -71,8 +69,4 @@ func checkIfSet(key string) {
 		err := errors.New(fmt.Sprintf("Key %s is not set", key))
 		panic(err)
 	}
-}
-
-func GetExpiryTime() int {
-	return appConfig.expiryTime
 }

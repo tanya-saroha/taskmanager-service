@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"github.com/jmoiron/sqlx"
-	"github.com/tanya-saroha/taskmanager-service/config"
 	_ "github.com/lib/pq"
+	"github.com/tanya-saroha/taskmanager-service/config"
 	"go.uber.org/zap"
 )
 

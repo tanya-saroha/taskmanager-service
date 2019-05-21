@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"github.com/tanya-saroha/taskmanager-service/app"
 	"github.com/tanya-saroha/taskmanager-service/db"
 )
@@ -12,7 +13,6 @@ func initDependencies() (dependencies, error) {
 	appDB := app.GetDB()
 	logger := app.GetLogger()
 	dbStore := db.NewStorer(appDB, logger)
-
-	return dependencies{
-	}, nil
+	fmt.Println(appDB, logger, dbStore)
+	return dependencies{}, nil
 }
